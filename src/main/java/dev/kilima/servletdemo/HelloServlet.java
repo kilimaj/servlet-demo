@@ -9,16 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+// Use annotations instead of web.xml file
 @WebServlet("/hello-world")
 public class HelloServlet extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		resp.setContentType("text/html");
-		
+
 		PrintWriter out = resp.getWriter();
 		out.println("<h1> Hello, World! </h1>");
 		out.close();
