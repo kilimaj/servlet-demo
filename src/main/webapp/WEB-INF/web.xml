@@ -12,16 +12,4 @@
 		<welcome-file>default.htm</welcome-file>
 		<welcome-file>default.jsp</welcome-file>
 	</welcome-file-list>
-
-	<!-- How to declare servlet class in web file -->
-	<!--  
-	<servlet>
-		<servlet-name>S1</servlet-name>
-		<servlet-class>dev.kilima.servletdemo.HelloServlet</servlet-class>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>S1</servlet-name>
-		<url-pattern>/hello</url-pattern>
-	</servlet-mapping>
-	-->
 </web-app>
