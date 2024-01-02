@@ -30,7 +30,6 @@ public class AddNameServlet extends HttpServlet {
 		List<String> names = (List<String>) session.getAttribute("nameList");
 		if (names == null) {
 			names = new ArrayList<String>();
-			names.add(friendName);
 			session.setAttribute("nameList", names);
 		}
 
