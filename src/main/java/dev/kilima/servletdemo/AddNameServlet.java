@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -25,8 +26,21 @@ public class AddNameServlet extends HttpServlet {
 			resp.sendRedirect("./add-name.html");
 			return;
 		}
+		
+		// Application scope
+		ServletContext context = getServletContext();
+		
+		List<String> contextNames = (List<String>) context.getAttribute("nameList");
+		if(contextNames==null) {
+			contextNames = new ArrayList<String>();
+			context.setAttribute("nameList", contextNames);
+		}
+		
+		contextNames.add(friendName);
 
 		HttpSession session = req.getSession();
+		
+		// Session scope
 		List<String> names = (List<String>) session.getAttribute("nameList");
 		if (names == null) {
 			names = new ArrayList<String>();

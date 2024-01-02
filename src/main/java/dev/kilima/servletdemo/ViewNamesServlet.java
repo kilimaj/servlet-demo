@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
 
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,6 +32,16 @@ public class ViewNamesServlet extends HttpServlet {
 			out.println("<h3>These are youre friends:</h3>");
 			out.println("<ul>");
 			for (String name : names) {
+				out.println("<li>" + name + "</li>");
+			}
+			out.println("</ul>");
+		}
+		ServletContext context = getServletContext();
+		List<String> contextNames = (List<String>) context.getAttribute("nameList");
+		if (contextNames != null) {
+			out.println("<h3> Friend names added by all users: </h3>");
+			out.println("<ul>");
+			for (String name : contextNames) {
 				out.println("<li>" + name + "</li>");
 			}
 			out.println("</ul>");
